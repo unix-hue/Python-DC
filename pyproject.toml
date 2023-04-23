@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "python-dc"
+version = "0.1.0"
+description = "Python Dependency Checker"
+authors = ["anon"]
+license = "GPLv3"
+readme = "README.md"
+packages = [{include = "python_dc"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
