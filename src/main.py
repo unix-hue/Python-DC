@@ -31,7 +31,7 @@ def main():
     if path[-1] != delimiter:
         path = path + delimiter
 
-    dependency_parser = DependencyParser(path, venv)
+    dependency_parser = DependencyParser(path, venv, delimiter)
     project, reqs, fixed_reqs = dependency_parser.parse()
     
     '''vulnerability_mapper = VulnerabilityMapper()

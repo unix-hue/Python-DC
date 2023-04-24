@@ -6,16 +6,16 @@ class DependencyParser:
 
     _SIGNS = ('==', '===', '>=', '<=', '>', '<', '~=')
 
-    def __init__(self, path, venv):
+    def __init__(self, path, venv, d):
         self.path = path
         self.project = None
         self.reqs = None
         self.fixed_reqs = None
 
         if venv is None:
-            self.venv = f'{path}.venv'
+            self.venv = f'{path}.venv{d}Lib{d}site-packages{d}'
         else:
-            self.venv = venv
+            self.venv = f'{venv}{d}Lib{d}site-packages{d}'
 
     def parse(self):
         try:
@@ -96,7 +96,7 @@ class DependencyParser:
 
         return reqs
 
-    def _req_parse(self, file):#todo
+    def _req_parse(self, file):
         reqs = dict()
 
         for line in file:
@@ -139,7 +139,14 @@ class DependencyParser:
         return reqs
 
     def _venv_parse(self, venv):#todo
-        pass
+        data = os.walk(venv)
+        directories = next(data)[1]
+        directories = [venv+lib for lib in directories if lib.find('dist-info') != -1]
+
+        # Последовательно открываю и ищу нужную информацию
+        # Заполняю список объектов Dependency
+        # Обновляю self.reqs        
+        return 1
 
     def _lock_parse(self, file):#todo
         pass

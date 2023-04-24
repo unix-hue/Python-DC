@@ -24,11 +24,19 @@ class Project:
 
 class Dependency:
 
-    def __init__():
-        pass
+    def __init__(self):
+        self.installer = None
+        
+        self.name = None
+        self.version = None
+        self.summary = None
+        self.homepage = None
+        self.author = None
+        self.author_email = None
+        self.license = None
+        self.platform = None
+        self.requires_python = None
+        self.requires_dist = None
 
-    def set_value():
-        pass
-
-    def print_report():
+    def print_report(self):
         pass
